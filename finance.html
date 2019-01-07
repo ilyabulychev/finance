@@ -1,0 +1,79 @@
+﻿
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Financial Visualizations:</title>
+ 
+    <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="./styles/styles.css">
+    <script src="./modules/jquery-3.3.1.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Financial Visualizations:</h1>
+    <h4>Attention: To get access to Financial Server, please, use <a href="http://google.com/chrome" target="_blank">Google Chrome</a> and add <a href="https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?utm_source=chrome-ntp-icon" target="_blank">Google Extention</a>
+    </h4>
+    <table>
+      <tr>
+         
+        <td rowspan="4">Tickets: <br /> 
+          <textarea id="tickets" cols="40" rows="5">AKAO,EPZM,HZN,KEG,AMID,SNNA,OZM,INSG,INS,SMTX,CHFS,NM,HONR,IDIV,SPVM,XSHD,AKTX,ANGO,RBZ,BOXL,RCUS,AVDL,RHE,IPDN,LNDC,SSI,LLIT,ARCW	,SNDE,CEI	,AKAO,CADC,SPY,GE,ADNT,BRID,RVNC</textarea></td>
+        <td>Avg Volume: </td>
+        <td>
+          <select id = "select_avg">
+            <option value=">">></option>
+            <option value=">=">>=</option>
+            <option value="=">=</option>
+            <option value="<"><</option>
+            <option value="<="><=</option>
+          </select>
+          <input type="text" id="input_avg" value="1K" /></td>
+      </tr>
+      <tr>
+        <td>ATR: </td>
+        <td>
+            <select id = "select_atr">
+                <option value=">">></option>
+                <option value=">=">>=</option>
+                <option value="=">=</option>
+                <option value="<"><</option>
+                <option value="<="><=</option>
+              </select>
+              <input type="text" id="input_atr"  value="1"  /></td>
+      </tr>
+      <tr>
+          <td>Price: </td>
+          <td>
+              <select id = "select_price">
+                  <option value=">">></option>
+                  <option value=">=">>=</option>
+                  <option value="=">=</option>
+                  <option value="<"><</option>
+                  <option value="<="><=</option>
+                </select>
+                <input type="text" id="input_price" value="1" /></td>
+      </tr>
+    </table>
+    <input type="button" value="Scan" id="scan" /> 
+    <input type="button" value="Hide Red" id="hide_red" />
+    <input type="button" value="Show Red" id="show_red" />
+    <h1>Result:</h1>
+    <table  id="table_passed">
+      <tr>
+        <th>Ticket</th>
+        <th>Avg Volume</th>
+        <th>ATR</th>
+        <th>Price</th>
+      </tr>
+      <tr id="template" style="display: none">
+          <td class="td_ticket"><a href='#' target="_blank">Ticket</a></td>
+          <td class="td_avg">Avg Volume</td>
+          <td class="td_atr">ATR</td>
+          <td class="td_price">Price</td>
+      </tr>
+     
+    </table>
+    
+    <script src="./scripts/finance.page.js"></script>
+  </body>
+</html>

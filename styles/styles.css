@@ -1,0 +1,70 @@
+body {
+    font-family: 'Ropa Sans', sans-serif;
+    color: #333;
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  h1 {
+    margin: 50px 0;
+    font-size: 50px;
+  }
+
+  #loadingMessage {
+    text-align: center;
+    padding: 40px;
+    background-color: #ddd;
+  }
+
+  #canvas {
+    width: 100%;
+  }
+
+  #output {
+    margin-top: 20px;
+    background: #eee;
+    padding: 10px;
+    padding-bottom: 0;
+  }
+
+  #output div {
+    padding-bottom: 10px;
+    word-wrap: break-word;
+  }
+
+  #noQRFound {
+    text-align: center;
+  }
+  td {
+    padding: 5px;
+  }
+  th {
+    color:#fff;
+    font-size: 14px;
+    background-color: #444;
+    padding: 10px 40px;
+    font-weight: 100;
+  }
+
+  a {
+    color: black;
+  }
+  input[type=button] {
+
+    color:#fff;
+    font-size: 14px;
+    background-color: #444;
+    border: 1px solid #444;
+    padding: 10px;
+    margin: 10px  2px;
+    cursor: hand;
+}
+select {
+  border: 1px solid white;
+  font-size: 12pt;
+}
+
+.system {
+  margin: 20px 0px;
+}
