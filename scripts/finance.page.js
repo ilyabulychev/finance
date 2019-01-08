@@ -82,11 +82,10 @@ $(document).ready(function(){
         console.log(`AVG: ${$("#select_avg").val()} : ${$("#input_avg").val()}`);
         console.log(`ATR: ${$("#select_atr").val()} : ${$("#input_atr").val()}`);
         
-        var greenTickets = [];
-        var redTickets = [];
+       
 
         tickets.forEach(ticket => {
-   
+
             $.ajax( { url: "https://finviz.com/quote.ashx?t=" + ticket.trim(),
             type: "GET",
             success: function(data) {
@@ -107,9 +106,19 @@ $(document).ready(function(){
                     !CheckFinance($("#select_price").val(), price, $("#input_price").val())) {
                     $(clone).attr('class', 'ticket-trs-red');
 
-                    redTickets.push(ticket.trim());
+                    if($("#tickets_red").val() > 1) {
+                        $("#tickets_red").val($("#tickets_red").val() + ', ' + ticket.trim());
+                    } else {
+                        $("#tickets_red").val(ticket.trim());
+                    }
+                   
                 } else {
-                    greenTickets.push(ticket.trim());
+                   
+                    if($("#tickets_green").val() > 1) {
+                        $("#tickets_green").val($("#tickets_green").val() + ', ' + ticket.trim());
+                    } else {
+                        $("#tickets_green").val(ticket.trim());
+                    }
                 }
              
               $(clone).find('.td_avg').css('color', CheckFinance($("#select_avg").val(), avgVolume, $("#input_avg").val()) ? 'green': 'red');
@@ -126,8 +135,7 @@ $(document).ready(function(){
 
                
             });
-            $("#tickets_green").val(greenTickets.join(' '));
-            $("#tickets_red").val(redTickets.join(' '));
+           
         });
         
     });
