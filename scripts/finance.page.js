@@ -1,5 +1,78 @@
 $(document).ready(function(){ 
+    
+    $('#getTickets').on('click', function() {
 
+        if(!$("#ticketDate").val()) { alert('Please, choose the date'); }
+
+        var date = new Date($("#ticketDate").val());
+        var previousDate = new Date($("#ticketDate").val());
+
+        switch(previousDate.getDay()) {
+            case 1: 
+                previousDate.setDate(previousDate.getDate()-3);
+                break;
+            case 0: 
+                previousDate.setDate(previousDate.getDate()-2);
+                break;
+            default: 
+                previousDate.setDate(previousDate.getDate()-1);
+            break;
+
+        }
+        
+        console.log(`Date: Month: ${date.getUTCMonth()+1}, Day: ${date.getUTCDate()}, Year: ${date.getUTCFullYear()}`);
+        console.log(`Previous: Month: ${previousDate.getUTCMonth()+1}, Day: ${previousDate.getUTCDate()}, Year: ${previousDate.getUTCFullYear()}`);
+        
+        $("#tickets").val('');
+        $.ajax( { url: `https://www.briefing.com/investor/calendars/earnings/${date.getUTCFullYear()}/${date.getUTCMonth()+1}/${date.getUTCDate()}/`,
+        type: "GET",
+        xhrFields: {
+            withCredentials: true
+         },
+        success: function(data) {
+            var beforeTheOpen = /Before The Open(?:.|\n)+After The Close/gmi.exec(data);
+            if(beforeTheOpen) {
+                console.log('BEFORE THE OPEN:')
+                var beforeTheOpenTickets = /<a class="ticker".+>(.+)<\/a>/gmi;
+
+                var ticketArray = [];
+                while((ticket = beforeTheOpenTickets.exec(beforeTheOpen[0])) !== null) {
+                    ticketArray.push(ticket[1]); 
+                }
+                console.log(ticketArray.join(', '));
+                if($("#tickets").val().length > 1) {
+                    $("#tickets").val($("#tickets").val() + ', ' + ticketArray.join(', '));
+                } else {
+                    $("#tickets").val(ticketArray.join(', '));
+                }
+            }
+        }})
+
+        $.ajax( { url: `https://www.briefing.com/investor/calendars/earnings/${previousDate.getUTCFullYear()}/${previousDate.getUTCMonth()+1}/${previousDate.getUTCDate()}/`,
+        type: "GET",
+        xhrFields: {
+            withCredentials: true
+         },
+        success: function(data) {
+            var afterTheClose = /After The Close(?:.|\n)+/gmi.exec(data);
+            if(afterTheClose) {
+                console.log('AFTER THE CLOSE:')
+                var ticketArray = [];
+                var afterTheCloseTickets = /<a class="ticker".+>(.+)<\/a>/gmi;
+                while((ticket = afterTheCloseTickets.exec(afterTheClose[0])) !== null) {
+                    ticketArray.push(ticket[1]); 
+                }
+                console.log(ticketArray.join(', '));
+                if($("#tickets").val().length > 1) {
+                    $("#tickets").val($("#tickets").val() + ', ' + ticketArray.join(', '));
+                } else {
+                    $("#tickets").val(ticketArray.join(', '));
+                }
+            }
+            
+        }})
+
+    });
     $('#scan').on('click', function() {
         $(".ticket-trs").remove();
         $(".ticket-trs-red").remove();

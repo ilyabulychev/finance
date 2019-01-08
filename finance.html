@@ -11,7 +11,7 @@
 
   <body>
     <h1>Financial Visualizations:</h1>
-    <h4>Attention: To get access to Financial Server, please, use <a href="http://google.com/chrome" target="_blank">Google Chrome</a> and add <a href="https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?utm_source=chrome-ntp-icon" target="_blank">Google Extention</a>
+    <h4>Attention: To get access to Financial Server, please, use <a href="http://google.com/chrome" target="_blank">Google Chrome</a> and add <a href="https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?utm_source=chrome-ntp-icon" target="_blank">Google Extention</a>
     </h4>
     <table>
       <tr>
@@ -53,10 +53,15 @@
                 </select>
                 <input type="text" id="input_price" value="1" /></td>
       </tr>
+      <tr>
+        <td>Date:</td>
+        <td><input type="date" style="margin-left: 45px; width: 175px;" id="ticketDate"/></td>
+      </tr>
     </table>
     <input type="button" value="Scan" id="scan" /> 
     <input type="button" value="Hide Red" id="hide_red" />
     <input type="button" value="Show Red" id="show_red" />
+    <input type="button" value="Get Tickets" id="getTickets" />
     <h1>Result:</h1>
     <table  id="table_passed">
       <tr>
