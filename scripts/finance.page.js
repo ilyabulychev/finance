@@ -106,8 +106,8 @@ $(document).ready(function(){
                     !CheckFinance($("#select_price").val(), price, $("#input_price").val())) {
                     $(clone).attr('class', 'ticket-trs-red');
 
-                    if($("#tickets_red").val().length > 1) {
-                        $("#tickets_red").val($("#tickets_red").val() + ', ' + ticket.trim());
+                    if($("#tickets_red").val().lengthbm > 1) {
+                        $("#tickets_red").val($("#tickets_red").val() + ' ' + ticket.trim());
                     } else {
                         $("#tickets_red").val(ticket.trim());
                     }
@@ -115,7 +115,7 @@ $(document).ready(function(){
                 } else {
                    
                     if($("#tickets_green").val().length > 1) {
-                        $("#tickets_green").val($("#tickets_green").val() + ', ' + ticket.trim());
+                        $("#tickets_green").val($("#tickets_green").val() + ' ' + ticket.trim());
                     } else {
                         $("#tickets_green").val(ticket.trim());
                     }
