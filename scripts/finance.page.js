@@ -82,7 +82,7 @@ $(document).ready(function(){
         console.log(`AVG: ${$("#select_avg").val()} : ${$("#input_avg").val()}`);
         console.log(`ATR: ${$("#select_atr").val()} : ${$("#input_atr").val()}`);
         
-       
+        $("#tickets_green").val('');
 
         tickets.forEach(ticket => {
 
