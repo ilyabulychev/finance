@@ -29,6 +29,8 @@ $(document).ready(function(){
         xhrFields: {
             withCredentials: true
          },
+                   dataType: 'html',
+                 crossDomain: true,
         success: function(data) {
             var beforeTheOpen = /Before The Open(?:.|\n)+After The Close/gmi.exec(data);
             if(beforeTheOpen) {
