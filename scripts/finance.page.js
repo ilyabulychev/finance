@@ -54,6 +54,7 @@ $(document).ready(function(){
             withCredentials: true
          },
         dataType: 'html',
+                 crossDomain: true,
         success: function(data) {
             var afterTheClose = /After The Close(?:.|\n)+/gmi.exec(data);
             if(afterTheClose) {
