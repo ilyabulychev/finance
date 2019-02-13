@@ -53,6 +53,7 @@ $(document).ready(function(){
         xhrFields: {
             withCredentials: true
          },
+        dataType: 'html',
         success: function(data) {
             var afterTheClose = /After The Close(?:.|\n)+/gmi.exec(data);
             if(afterTheClose) {
