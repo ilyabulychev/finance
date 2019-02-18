@@ -94,7 +94,7 @@ $(document).ready(function(){
             type: "GET",
             headers: {
             'origin': 'x-requested-with'
-            }
+            },
             success: function(data) {
               var price = />Price<.+<b>(.+)<\/b>/i.exec(data)[1];
               var avgVolume = />Avg Volume<.+<b>(.+)<\/b>/i.exec(data)[1];
