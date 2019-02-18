@@ -93,7 +93,7 @@ $(document).ready(function(){
             $.ajax( { url: "https://cors-anywhere.herokuapp.com/https://finviz.com/quote.ashx?t=" + ticket.trim(),
             type: "GET",
             headers: {
-            'origin': 'x-requested-with';
+            'origin': 'x-requested-with'
             }
             success: function(data) {
               var price = />Price<.+<b>(.+)<\/b>/i.exec(data)[1];
