@@ -90,8 +90,11 @@ $(document).ready(function(){
 
         tickets.forEach(ticket => {
 
-            $.ajax( { url: "https://finviz.com/quote.ashx?t=" + ticket.trim(),
+            $.ajax( { url: "https://cors-anywhere.herokuapp.com/https://finviz.com/quote.ashx?t=" + ticket.trim(),
             type: "GET",
+            headers: {
+            'origin': 'x-requested-with';
+            }
             success: function(data) {
               var price = />Price<.+<b>(.+)<\/b>/i.exec(data)[1];
               var avgVolume = />Avg Volume<.+<b>(.+)<\/b>/i.exec(data)[1];
